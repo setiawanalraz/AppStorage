@@ -16,25 +16,24 @@ import java.io.IOException;
 
 public class ExternalActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String FILENAME = "namafileEx.txt";
-    Button buatFile, ubahFile, bacaFile, hapusFile;
-    TextView textBaca;
+    Button makeFile, editFile, readFile, deleteFile;
+    TextView tvBaca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_internal);
+        setContentView(R.layout.activity_external);
 
-        buatFile = (Button) findViewById(R.id.buttonBuatFile);
-        ubahFile = (Button) findViewById(R.id.buttonUbahFile);
-        bacaFile = (Button) findViewById(R.id.buttonBacaFile);
-        hapusFile = (Button) findViewById(R.id.buttonHapusFile);
-        textBaca = (TextView) findViewById(R.id.textBaca);
+        makeFile = (Button) findViewById(R.id.btnBuatFile);
+        editFile = (Button) findViewById(R.id.btnUbahFile);
+        readFile = (Button) findViewById(R.id.btnBacaFile);
+        deleteFile = (Button) findViewById(R.id.btnHapusFile);
+        tvBaca = (TextView) findViewById(R.id.tvBaca);
 
-        buatFile.setOnClickListener(this);
-        bacaFile.setOnClickListener(this);
-        ubahFile.setOnClickListener(this);
-        hapusFile.setOnClickListener(this);
-
+        makeFile.setOnClickListener(this);
+        editFile.setOnClickListener(this);
+        readFile.setOnClickListener(this);
+        tvBaca.setOnClickListener(this);
     }
 
     void buatFile() {
@@ -97,7 +96,7 @@ public class ExternalActivity extends AppCompatActivity implements View.OnClickL
             } catch (IOException e) {
                 System.out.println("Error " + e.getMessage());
             }
-            textBaca.setText(text.toString());
+            tvBaca.setText(text.toString());
         }
     }
 
@@ -115,16 +114,16 @@ public class ExternalActivity extends AppCompatActivity implements View.OnClickL
 
     private void jalankanPerintah(int id) {
         switch (id) {
-            case R.id.buttonBuatFile:
+            case R.id.btnBuatFile:
                 buatFile();
                 break;
-            case R.id.buttonBacaFile:
+            case R.id.btnBacaFile:
                 bacaFile();
                 break;
-            case R.id.buttonUbahFile:
+            case R.id.btnUbahFile:
                 ubahFile();
                 break;
-            case R.id.buttonHapusFile:
+            case R.id.btnHapusFile:
                 hapusFile();
                 break;
         }
